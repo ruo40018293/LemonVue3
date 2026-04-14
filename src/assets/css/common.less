@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -webkit-box-sizing: border-box;
+  /* Safari */
+}
+
+.el-pager li {
+  font-weight: 100;
+  margin-right: 9px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  min-width: 28px;
+}
+
+.el-pager li.active,
+.el-pager li:hover {
+  background: #ed4014;
+  color: white;
+}
+
+.el-pagination__editor.el-input .el-input__inner {
+  height: 23px;
+}
+
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media (print),
+(prefers-reduced-motion) {
+  .animated {
+    -webkit-animation: unset !important;
+    animation: unset !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.ivu-message {
+  z-index: 999999999 !important;
+}
+
+.ivu-form-item-content {
+  text-align: left;
+}
+
+/* 增加或者修改时表格内添加/删除数据 */
+.add-item-in-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    color: #303133;
+    font-weight: normal;
+    padding: 8px;
+    background: #f5f7fa;
+  }
+
+  // th:before {
+  //   content: '*';
+  //   color: #F56C6C;
+  //   margin-right: 4px;
+  // }
+
+  td {
+    padding: 8px 5px 12px 5px;
+  }
+
+  tr td,
+  th {
+    border: 1px solid #ebeef5;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .el-form-item__error {
+    padding-top: 0 !important;
+  }
+
+  .table-action i {
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+/* 表单输入时  label的长度大于label-width时 换行显示  需要在form-item加上class -- wrap-label*/
+.wrap-label .el-form-item__label {
+  line-height: 20px !important;
+}
+
+/* 上传一个文档时  切换的效果重置*/
+.upload-switch-bd .el-list-enter-active,
+.upload-switch-bd .el-list-leave-active {
+  transition: none;
+}
+
+.upload-switch-bd .el-list-enter,
+.upload-switch-bd .el-list-leave-active {
+  opacity: 0;
+}
+
+// .upload-switch-bd .el-upload-list {
+//   height: 40px;
+// }
+
+.action_btn_bd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
