@@ -17,7 +17,13 @@ import FileSaver from 'file-saver'
 import XLSX from 'sheetjs-style'
 import $ from 'jquery'
 import print from '@/plugs/print'
+import preventReClick from '@/utilities/preventRepeatClick'
+import '@/utilities/dialogExt.js'
 import appsettings from '@/appsettings.json'
+import http from '@/api/http'
+import permission from '@/api/permission'
+import base from '@/utilities/common'
+import filters from '@/filters/index'
 import { useSystemStore } from '@/stores'
 
 const app = createApp(App)
@@ -32,6 +38,7 @@ app.use(router)
 app.use(ElementPlus, { duration: 6000 })
 app.use(VXETable)
 app.use(print)
+app.use(preventReClick)
 
 const systemStore = useSystemStore()
 systemStore.setAppsettings(appsettings)
@@ -43,6 +50,16 @@ app.config.globalProperties.$numeral = numeral
 app.config.globalProperties.$FileSaver = FileSaver
 app.config.globalProperties.$XLSX = XLSX
 app.config.globalProperties.$NProgress = NProgress
+
+Object.keys(filters).forEach(k => {
+  app.config.globalProperties[`$${k}`] = filters[k]
+})
+
+app.config.globalProperties.permission = permission
+app.config.globalProperties.permission.init(app)
+app.config.globalProperties.base = base
+app.config.globalProperties.http = http
+app.config.globalProperties.http.init(app)
 
 if (localStorage.getItem('userMes')) {
   systemStore.setPermission()
